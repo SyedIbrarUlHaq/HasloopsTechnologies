@@ -1,0 +1,28 @@
+
+{
+  "compilerOptions": {
+    /* Language and Environment */
+    "target": "esnext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "esnext",
+    "jsx": "react-jsx",
+
+    /* Modules */
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+
+    /* Strictness */
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* File handling */
+    "allowJs": true,         //  allows JS files 
+    "noEmit": true,          //  build time JS/TS does not overwrite 
+    "isolatedModules": true
+  },
+  "include": ["src"],        // just src folder files compile 
+  "exclude": ["node_modules"]
+}
