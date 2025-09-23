@@ -392,3 +392,25 @@ body{
   align-items: center;
   gap: 10px;
 }
+/* App.css ya index.css */
+.topbar.ltr .topbar-inner {
+  flex-direction: row;
+}
+
+.topbar.rtl .topbar-inner {
+  flex-direction: row-reverse;
+}
+.lang-select {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: #fff;
+  transition: 0.3s;
+}
+
+.lang-select:hover {
+  border-color: #4a90e2;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+}

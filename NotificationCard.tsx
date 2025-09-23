@@ -49,9 +49,10 @@
 
 
 
-// src/components/NotificationCard.tsx
+// // src/components/NotificationCard.tsx
 import React from "react";
 import { Notification } from "../types";
+import { useTranslation } from "react-i18next";
 
 interface NotificationCardProps {
   note: Notification;
@@ -76,6 +77,8 @@ const NotificationCard: React.FC<NotificationCardProps> = ({
   deleteNotification,
   formatTimeAgo,
 }) => {
+  const { t } = useTranslation();
+
   const handleEdit = () => {
     setEditId(note.id);
     setEditText(note.title);
@@ -86,16 +89,18 @@ const NotificationCard: React.FC<NotificationCardProps> = ({
     <article className="note">
       <div className="note-body">
         <h3>{note.title}</h3>
-        <p>{note.body}</p>
+        {/* <p>{note.body}</p> */}
+        <p>{note.bodyKey ? t(note.bodyKey) : note.body}</p>
+
         <div className="btn-group">
           <button className="btn edit-btn" onClick={handleEdit}>
-            Edit
+            {t("edit")}
           </button>
           <button
             className="btn delete-btn"
             onClick={() => deleteNotification(note.id)}
           >
-            Delete
+            {t("delete")}
           </button>
         </div>
       </div>

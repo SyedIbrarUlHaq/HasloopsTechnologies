@@ -92,8 +92,15 @@
 // src/components/Topbar.tsx
 import React from "react";
 import "../App.css";
+import { useTranslation } from "react-i18next";
 
 const Topbar: React.FC = () => {
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+  };
+
   return (
     <header className="topbar">
       <div className="topbar-inner">
@@ -111,7 +118,7 @@ const Topbar: React.FC = () => {
               ></path>
             </svg>
           </div>
-          <span className="brand-name">Furqan LMS</span>
+          <span className="brand-name">{t("brand")}</span>
         </div>
 
         {/* Center nav pills */}
@@ -122,7 +129,7 @@ const Topbar: React.FC = () => {
                 <path d="M3 12h18M3 6h18M3 18h18" />
               </svg>
             </span>
-            <span>Dashboard</span>
+            <span>{t("dashboard")}</span>
           </button>
           <button className="tab">
             <span className="tab-ico">
@@ -130,7 +137,7 @@ const Topbar: React.FC = () => {
                 <path d="M4 4h16v6H4zM4 14h10v6H4z" />
               </svg>
             </span>
-            <span>Education</span>
+            <span>{t("education")}</span>
             <svg className="caret" viewBox="0 0 24 24">
               <path d="M6 9l6 6 6-6" />
             </svg>
@@ -141,7 +148,7 @@ const Topbar: React.FC = () => {
                 <path d="M3 7h18M3 12h18M3 17h18" />
               </svg>
             </span>
-            <span>Packages</span>
+            <span>{t("packages")}</span>
           </button>
         </nav>
 
@@ -158,8 +165,21 @@ const Topbar: React.FC = () => {
               <path d="M15 17h5l-1.4-1.4A2 2 0 0118 14v-3a6 6 0 10-12 0v3a2 2 0 01-.6 1.4L4 17h5" />
               <path d="M9 21a3 3 0 006 0" />
             </svg>
-            <span>Notifications</span>
+            <span>{t("notifications")}</span>
           </button>
+
+          {/* Language Switcher Dropdown */}
+          <div className="lang-switcher">
+            <select
+              className="lang-select"
+              value={i18n.language}
+              onChange={(e) => changeLanguage(e.target.value)}
+            >
+              <option value="en">🇬🇧 English</option>
+              <option value="ar">🇸🇦 العربية</option>
+            </select>
+          </div>
+
           <div className="avatar" aria-label="User"></div>
         </div>
       </div>
